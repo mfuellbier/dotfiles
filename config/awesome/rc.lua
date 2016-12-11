@@ -273,7 +273,38 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+    -- Brightness
+    awful.key({ }, "XF86MonBrightnessDown",
+		function ()
+    		awful.util.spawn("xbacklight -dec 15") end),
+    awful.key({ }, "XF86MonBrightnessUp",
+		function ()
+    		awful.util.spawn("xbacklight -inc 15") end),
+    -- Audio
+	awful.key({ }, "XF86AudioRaiseVolume",
+		function ()
+			awful.util.spawn("amixer set Master 5%+") end),
+	awful.key({ }, "XF86AudioLowerVolume",
+		function ()
+			awful.util.spawn("amixer set Master 5%-") end),
+	awful.key({ }, "XF86AudioMute",
+		function ()
+			awful.util.spawn("amixer set Master toggle") end),
+    -- Custom
+	awful.key({ modkey,			  }, "e",
+		function ()
+			awful.util.spawn("thunar") end),
+	awful.key({ modkey,			  }, "x",
+		function ()
+			awful.util.spawn("oblogout") end),
+	awful.key({ modkey,			  }, "s",
+		function ()
+			awful.util.spawn("dmenu_run") end),
+    awful.key({ modkey, "Control"  }, "b",
+		function ()
+			awful.util.spawn("slock") end)
+
 )
 
 clientkeys = awful.util.table.join(
@@ -293,38 +324,7 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end),
--- Brightness
-    awful.key({ }, "XF86MonBrightnessDown",
-		function ()
-    		awful.util.spawn("xbacklight -dec 15") end),
-    awful.key({ }, "XF86MonBrightnessUp",
-		function ()
-    		awful.util.spawn("xbacklight -inc 15") end),
--- Audio
-	awful.key({ }, "XF86AudioRaiseVolume",
-		function ()
-			awful.util.spawn("amixer set Master 5%+") end),
-	awful.key({ }, "XF86AudioLowerVolume",
-		function ()
-			awful.util.spawn("amixer set Master 5%-") end),
-	awful.key({ }, "XF86AudioMute",
-		function ()
-			awful.util.spawn("amixer set Master toggle") end),
--- Custom
-	awful.key({ modkey,			  }, "e",
-		function ()
-			awful.util.spawn("thunar") end),
-	awful.key({ modkey,			  }, "x",
-		function ()
-			awful.util.spawn("oblogout") end),
-	awful.key({ modkey,			  }, "s",
-		function ()
-			awful.util.spawn("dmenu_run") end),
-	awful.key({ modkey, "Control"  }, "b",
-		function ()
-			awful.util.spawn("slock") end)
-
+        end)
 )
 
 -- Bind all key numbers to tags.
