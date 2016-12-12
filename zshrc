@@ -1,14 +1,18 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/home/maikel/tools/oh-my-zsh
-
+#
+# ~/.zshrc
+#
 source ~/.private
+
+
+# Path to your oh-my-zsh installation.
+export ZSH=/home/maikel/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="jonathan"
-
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -33,7 +37,7 @@ ZSH_THEME="jonathan"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -59,13 +63,14 @@ plugins=(git)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+
 
 
 # PROMPT="%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$fg_no_bold[cyan]%}%1~ %# %{$reset_color%}"
 
 bindkey -v
 bindkey "^R" history-incremental-search-backward
+stty -ixon
 
 alias shutdown='sudo shutdown'
 alias cp="cp -i"
@@ -75,15 +80,31 @@ alias open='xdg-open'
 
 export VISUAL="vim"
 
+# Signal CMD-Mode
+precmd() {
+    RPROMPT=""
+}
+zle-keymap-select() {
+    RPROMPT=""
+    [[ $KEYMAP = vicmd ]] && RPROMPT="(CMD)"
+    () { return $__prompt_status }
+    zle reset-prompt
+}
+zle-line-init() {
+     typeset -g __prompt_status="$?"
+}
+zle -N zle-keymap-select
+zle -N zle-line-init
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,4 +120,3 @@ export VISUAL="vim"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-stty -ixon

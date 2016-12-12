@@ -12,6 +12,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+local switcher = require("awesome-switcher-preview")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -235,7 +237,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Mod1"    }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Mod1"    }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -261,6 +265,22 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
+
+    -- Monitor
+     awful.key({modkey,            }, "F1",     function () awful.screen.focus(1) end),
+     awful.key({modkey,            }, "F2",     function () awful.screen.focus(2) end),
+     awful.key({modkey,            }, "F3",     function () awful.screen.focus(3) end),
+
+    -- Alt + Tab
+    awful.key({ "Mod1",           }, "Tab",
+       function (c)
+           switcher.switch( 1, "Alt_L", "Tab", "ISO_Left_Tab")
+       end),
+
+    awful.key({ "Mod1", "Shift"   }, "Tab",
+        function ()
+            switcher.switch(-1, "Alt_L", "Tab", "ISO_Left_Tab")
+        end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
@@ -301,7 +321,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,			  }, "s",
 		function ()
 			awful.util.spawn("dmenu_run") end),
-    awful.key({ modkey, "Control"  }, "b",
+        awful.key({ "Mod1", "Control"  }, "l",
 		function ()
 			awful.util.spawn("slock") end)
 
@@ -312,7 +332,8 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey, "Mod1"    }, "h",      function(c) awful.client.movetoscreen(c,c.screen-1) end ),
+    awful.key({ modkey, "Mod1"    }, "l",      function(c) awful.client.movetoscreen(c,c.screen+1) end ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
         function (c)
@@ -510,4 +531,4 @@ battimer:start()
 
 -- end here for battery warning
 
-os.execute("nm-applet &")
+-- os.execute("nm-applet &")

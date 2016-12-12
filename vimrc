@@ -13,12 +13,23 @@ runtime! archlinux.vim
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
-filetype plugin on
+
 syntax on
 set relativenumber
 set number
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set autoindent
 
+set cursorline
+set hlsearch
+
+" TODO: Focus... not working yet
+autocmd InsertEnter * set relativenumber&
+autocmd InsertLeave * set relativenumber
+au FocusLost   * :set norelativenumber
+au FocusGained * :set relativenumber
+
+filetype plugin on
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
