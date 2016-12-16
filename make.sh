@@ -5,7 +5,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc conkyrc tmux.conf vimperatorrc vimrc zshrc config/openbox/rc.xml config/awesome/rc.lua "    # list of files/folders to symlink in homedir
+files="bashrc conkyrc tmux.conf vimperatorrc vimrc xinitrc zshrc config/openbox/rc.xml config/awesome/rc.lua "    # list of files/folders to symlink in homedir
 
 ##########
 
