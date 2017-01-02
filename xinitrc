@@ -45,7 +45,7 @@ nm-applet &
 cbatticon BAT0 -n &
 cbatticon BAT1 -n &
 
-thunderbird &
+#thunderbird &
 conky &
 exec awesome
 
