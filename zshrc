@@ -121,3 +121,4 @@ fi
 
 source ${HOME}/.private
 
+export TERM=xterm-256color
