@@ -101,7 +101,7 @@ zle -N zle-line-init
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -120,5 +120,3 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ${HOME}/.private
-
-export TERM=xterm-256color
