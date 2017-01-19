@@ -15,6 +15,8 @@ runtime! archlinux.vim
 " and configure vim to your own liking!
 
 syntax on
+colorscheme evening
+
 set relativenumber
 set number
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -30,6 +32,7 @@ autocmd FocusLost   * :set relativenumber&
 autocmd WinLeave    * :set relativenumber&
 autocmd FocusGained * :set relativenumber
 autocmd WinEnter    * :set relativenumber
+set clipboard=unnamedplus
 
 filetype plugin on
 filetype plugin indent on

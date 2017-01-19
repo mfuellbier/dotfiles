@@ -87,7 +87,7 @@ precmd() {
 zle-keymap-select() {
     RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}"
     LPROMPT="%{$fg[cyan]%}▶%{$reset_color%}"
-    [[ $KEYMAP = vicmd ]] && LPROMPT="%{$fg[magenta]%}▼%{$reset_color%}" && RPROMPT="%{$fg[magenta]%}▼"
+    [[ $KEYMAP = vicmd ]] && LPROMPT="%{$fg[magenta]%}▼%{$reset_color%}" && RPROMPT="%{$fg[magenta]%}▼%{$reset_color%}"
     () { return $__prompt_status }
     zle reset-prompt
 }
@@ -104,7 +104,7 @@ zle -N zle-line-init
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='gvim'
 fi
 
 # Compilation flags
