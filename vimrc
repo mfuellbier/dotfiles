@@ -23,14 +23,15 @@ set autoindent
 set cursorline
 set hlsearch
 
-" TODO: Focus... not working yet
-autocmd InsertEnter * set relativenumber&
-autocmd InsertLeave * set relativenumber
-au FocusLost   * :set norelativenumber
-au FocusGained * :set relativenumber
+" Focus only works in gvim
+autocmd InsertEnter * :set relativenumber&
+autocmd InsertLeave * :set relativenumber
+autocmd FocusLost   * :set relativenumber&
+autocmd WinLeave    * :set relativenumber&
+autocmd FocusGained * :set relativenumber
+autocmd WinEnter    * :set relativenumber
 
 filetype plugin on
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-
