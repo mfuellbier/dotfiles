@@ -79,12 +79,15 @@ alias open='xdg-open'
 export VISUAL="vim"
 
 # Signal CMD-Mode
+# ~/.oh-my-zsh/themes/jonathan.zsh-theme, line 136: replace "> $PR_NO_COLOUR ' " with "> $LPROMPT$PR_NO_COLOUR ' "
 precmd() {
-    RPROMPT=""
+    RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}"
+    LPROMPT="%{$fg[cyan]%}▶%{$reset_color%}"
 }
 zle-keymap-select() {
-    RPROMPT=""
-    [[ $KEYMAP = vicmd ]] && RPROMPT="(CMD)"
+    RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}"
+    LPROMPT="%{$fg[cyan]%}▶%{$reset_color%}"
+    [[ $KEYMAP = vicmd ]] && LPROMPT="%{$fg[magenta]%}▼%{$reset_color%}" && RPROMPT="%{$fg[magenta]%}▼"
     () { return $__prompt_status }
     zle reset-prompt
 }
