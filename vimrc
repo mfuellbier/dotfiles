@@ -16,7 +16,7 @@ runtime! archlinux.vim
 
 syntax on
 colorscheme evening
-set guifont=Monospace\ 12
+set guifont=Monospace\ 10
 
 set relativenumber
 set number
@@ -33,7 +33,11 @@ autocmd FocusLost   * :set relativenumber&
 autocmd WinLeave    * :set relativenumber&
 autocmd FocusGained * :set relativenumber
 autocmd WinEnter    * :set relativenumber
-set clipboard=unnamedplus
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
 filetype plugin on
 filetype plugin indent on
