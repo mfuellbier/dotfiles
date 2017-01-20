@@ -73,7 +73,7 @@ stty -ixon
 alias shutdown='sudo shutdown'
 alias cp="cp -i"
 alias grep='grep --color=tty -d skip'
-alias rg='ranger'
+#alias rg='ranger'
 alias open='xdg-open'
 
 export VISUAL="vim"
