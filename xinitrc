@@ -42,6 +42,7 @@ compton &
 #exec openbox-session
 pnmixer &
 nm-applet &
+clipit &
 cbatticon BAT0 -n &
 cbatticon BAT1 -n &
 

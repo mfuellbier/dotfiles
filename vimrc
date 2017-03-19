@@ -16,7 +16,7 @@ runtime! archlinux.vim
 
 syntax on
 colorscheme evening
-set guifont=Monospace\ 10
+set guifont=Monospace\ 12
 
 set relativenumber
 set number
