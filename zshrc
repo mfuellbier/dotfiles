@@ -81,13 +81,13 @@ export VISUAL="vim"
 # Signal CMD-Mode
 # ~/.oh-my-zsh/themes/jonathan.zsh-theme, line 136: replace "> $PR_NO_COLOUR ' " with "> $LPROMPT$PR_NO_COLOUR ' "
 precmd() {
-    RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}"
+    [ -z "$NETNS" ] && RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}" || RPROMPT="%{$fg[cyan]%}◀%{$fg[green]%} ($NETNS)%{$reset_color%}"
     LPROMPT="%{$fg[cyan]%}▶%{$reset_color%}"
 }
 zle-keymap-select() {
-    RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}"
+    [ -z "$NETNS" ] && RPROMPT="%{$fg[cyan]%}◀%{$reset_color%}" || RPROMPT="%{$fg[cyan]%}◀%{$fg[green]%} ($NETNS)%{$reset_color%}"
     LPROMPT="%{$fg[cyan]%}▶%{$reset_color%}"
-    [[ $KEYMAP = vicmd ]] && LPROMPT="%{$fg[magenta]%}▼%{$reset_color%}" && RPROMPT="%{$fg[magenta]%}▼%{$reset_color%}"
+    [[ $KEYMAP = vicmd ]] && LPROMPT="%{$fg[magenta]%}▼%{$reset_color%}" && RPROMPT="%{$fg[magenta]%}▼%{$fg[green]%} $NETNS%{$reset_color%}"
     () { return $__prompt_status }
     zle reset-prompt
 }
