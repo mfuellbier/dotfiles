@@ -43,3 +43,17 @@ filetype plugin on
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
+
+Plugin 'maikel/Vundle.vim'
+Plugin 'maikel/vim-airline'
+set laststatus=2
+let g:airline_powerline_fonts=1
+
+filetype plugin indent on
