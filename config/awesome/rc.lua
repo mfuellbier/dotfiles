@@ -41,7 +41,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(awful.util.get_themes_dir() .. "powerarrow-dark/theme.lua")
+beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
@@ -382,9 +382,11 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,			  }, "s",
 		function ()
 			awful.util.spawn("dmenu_run") end),
-        awful.key({ "Mod1", "Control"  }, "l",
-		function ()
-			awful.util.spawn("slock") end)
+	awful.key({ modkey, "Control" }, "s", hotkeys_popup.show_help,
+            {description="show help", group="awesome"}),
+    awful.key({ "Mod1", "Control"  }, "l",
+        function ()
+	        awful.util.spawn("slock") end)
 
 )
 
@@ -421,7 +423,11 @@ clientkeys = awful.util.table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "maximize", group = "client"})
+        {description = "maximize", group = "client"}),
+    awful.key({ modkey }, "F7",
+        function(c) c.maximized_horizontal = not c.maximized_horizontal end),
+    awful.key({ modkey }, "F8",
+        function(c) c.maximized_vertical   = not c.maximized_vertical end)
 )
 
 -- Bind all key numbers to tags.
