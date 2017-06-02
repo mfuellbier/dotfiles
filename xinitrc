@@ -45,6 +45,7 @@ nm-applet &
 clipit &
 cbatticon BAT0 -n &
 cbatticon BAT1 -n &
+redshift &
 
 thunderbird &
 conky &
