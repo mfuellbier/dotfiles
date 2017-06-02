@@ -25,6 +25,7 @@ set autoindent
 
 set cursorline
 set hlsearch
+set mouse+=a
 
 " Focus only works in gvim
 autocmd InsertEnter * :set relativenumber&
