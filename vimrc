@@ -15,7 +15,7 @@ runtime! archlinux.vim
 " and configure vim to your own liking!
 
 syntax on
-colorscheme evening
+colorscheme desert
 set guifont=Monospace\ 12
 
 set relativenumber
@@ -41,7 +41,6 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
 filetype plugin on
-filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
@@ -50,11 +49,32 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+set rtp+=~/.vim/my-snippets/
+call vundle#begin()
 
-Plugin 'maikel/Vundle.vim'
-Plugin 'maikel/vim-airline'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+call vundle#end()
+filetype plugin indent on
+
+" Airline
 set laststatus=2
 let g:airline_powerline_fonts=1
 
-filetype plugin indent on
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
