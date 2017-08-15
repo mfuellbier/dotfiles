@@ -1,4 +1,4 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+ "All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
 " /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
 " do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
@@ -15,7 +15,7 @@ runtime! archlinux.vim
 " and configure vim to your own liking!
 
 syntax on
-colorscheme desert
+colorscheme torte
 set guifont=Monospace\ 12
 
 set relativenumber
@@ -26,6 +26,8 @@ set autoindent
 set cursorline
 set hlsearch
 set mouse+=a
+
+set autochdir
 
 " Focus only works in gvim
 autocmd InsertEnter * :set relativenumber&
@@ -59,6 +61,7 @@ Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 filetype plugin indent on
 
@@ -78,3 +81,20 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
+
+" NERDcommenter
+let mapleader=","
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
