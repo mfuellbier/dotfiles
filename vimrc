@@ -22,6 +22,8 @@ set relativenumber
 set number
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set autoindent
+set ignorecase smartcase
+set pastetoggle=<F2>
 
 set cursorline
 set hlsearch
@@ -62,6 +64,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
 
