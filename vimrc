@@ -65,6 +65,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
+Plugin 'henrik/vim-indexed-search'
 call vundle#end()
 filetype plugin indent on
 
