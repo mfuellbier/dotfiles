@@ -17,6 +17,7 @@ runtime! archlinux.vim
 syntax on
 colorscheme torte
 set guifont=Monospace\ 12
+set encoding=utf-8
 
 set relativenumber
 set number
