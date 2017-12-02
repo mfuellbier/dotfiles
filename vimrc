@@ -67,6 +67,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'henrik/vim-indexed-search'
+Plugin 'nvie/vim-flake8'
 call vundle#end()
 filetype plugin indent on
 
