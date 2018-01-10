@@ -77,6 +77,9 @@ alias grep='grep --color=tty -d skip'
 #alias rg='ranger'
 alias open='xdg-open'
 alias clip="xclip -selection c"
+if type nvim > /dev/null 2>&1; then
+    alias vim='nvim'
+fi
 
 export VISUAL="vim"
 
