@@ -4,6 +4,7 @@
 
 ########## Variables
 
+temp_dir=`pwd`
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc conkyrc tmux.conf vimperatorrc vimrc xinitrc zshrc config/openbox/rc.xml config/awesome/rc.lua "    # list of files/folders to symlink in homedir
@@ -36,3 +37,11 @@ for file in $files; do
         echo "-/.$file is symlink. Continue with next file..."
     fi
 done
+
+# fetch oh-my-zsh and Vundle.vim
+cd ~
+git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+mkdir -p .vim/bundle
+cd .vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git
+cd $temp_dir
