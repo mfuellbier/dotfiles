@@ -46,6 +46,8 @@ COMPLETION_WAITING_DOTS="true"
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm/dd/yyyy"
+setopt hist_ignore_dups
+setopt hist_ignore_space
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
