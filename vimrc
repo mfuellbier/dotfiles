@@ -25,6 +25,7 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set autoindent
 set ignorecase smartcase
 set pastetoggle=<F2>
+set timeoutlen=350
 
 set cursorline
 set hlsearch
@@ -106,6 +107,8 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" make with ,m
+" keybindings
 nnoremap <leader>m :! make<CR>
-
+noremap H ^
+noremap L $
+imap jj <ESC>
