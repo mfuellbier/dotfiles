@@ -68,6 +68,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-vinegar'
 call vundle#end()
 filetype plugin indent on
 
@@ -104,3 +105,7 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" make with ,m
+nnoremap <leader>m :! make<CR>
+
