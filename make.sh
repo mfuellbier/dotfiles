@@ -7,7 +7,7 @@
 temp_dir=`pwd`
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc conkyrc tmux.conf vimperatorrc vimrc xinitrc zshrc config/openbox/rc.xml config/awesome/rc.lua "    # list of files/folders to symlink in homedir
+files="bashrc conkyrc tmux.conf vimperatorrc vimrc xinitrc zshrc config/openbox/rc.xml config/awesome/rc.lua config/termite/config"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -29,10 +29,11 @@ for file in $files; do
         if [[ `echo $file | grep /` != '' ]]; then
             # if $file is in subdirectory (as config/awesome/rc.lua)
             mkdir -p $olddir/`echo $file | grep -oe "^.*/" | rev | cut -b 2- | rev`
+            mkdir -p ~/.`echo $file | grep -oe "^.*/" | rev | cut -b 2- | rev`
         fi
         mv ~/.$file $olddir/$file
         echo "Creating symlink to $file in home directory."
-        ln -s $dir/$file ~/.$file
+        ln -rs $dir/$file ~/.$file
     else
         echo "-/.$file is symlink. Continue with next file..."
     fi
