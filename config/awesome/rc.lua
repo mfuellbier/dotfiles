@@ -11,8 +11,8 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
--- awesome-switcher-preview
-local switcher = require("awesome-switcher-preview")
+-- awesome-switcher
+local switcher = require("awesome-switcher")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -329,12 +329,12 @@ globalkeys = awful.util.table.join(
     -- Alt + Tab
      awful.key({ "Mod1",           }, "Tab",
        function (c)
-           switcher.switch( 1, "Alt_L", "Tab", "ISO_Left_Tab")
+           switcher.switch( 1, "Mod1", "Alt_L", "Shift", "Tab")
        end),
      
      awful.key({ "Mod1", "Shift"   }, "Tab",
        function ()
-         switcher.switch(-1, "Alt_L", "Tab", "ISO_Left_Tab")
+         switcher.switch(-1, "Mod1", "Alt_L", "Shift", "Tab")
        end),
       
     -- Prompt

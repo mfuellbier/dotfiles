@@ -45,4 +45,5 @@ git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
 mkdir -p .vim/bundle
 cd .vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git
+git clone https://github.com/berlam/awesome-switcher ~/.config/awesome/awesome-switcher
 cd $temp_dir
