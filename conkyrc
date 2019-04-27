@@ -205,7 +205,7 @@ color4 B22222
 #color4 darkred
 
 #offset
-# stdofft 300
+stdoffset 30
 
 alignment tr
 background yes
@@ -222,7 +222,7 @@ own_window_hints below,sticky,skip_taskbar,skip_pager
 own_window_color 4c4c4c
 double_buffer yes
 minimum_size 450 1
-maximum_width 380
+maximum_width 455
 draw_shades no
 draw_outline no
 draw_borders no
@@ -240,53 +240,50 @@ override_utf8_locale yes
 # Fancy Conky display
 
 TEXT
-${font sans:size=21}${alignr }${color2}${time %H:%M:%S - %a %d %B}${voffset -15}
-${font sans:bold:size=11}${if_match "$acpiacadapter"=="on-line"}${color1}${else}${color #B22222}${endif}BAT0 ${color2}${battery_percent BAT}% | ${if_match "$acpiacadapter"=="on-line"}${color1}${else}${color #B22222}${endif}${color1}UP ${color2}$uptime_short | ${if_match "$acpiacadapter"=="off-line"}${color4}Left ${color2}${battery_time BAT0}${battery_time BAT1}${endif}
+${font sans:size=30}${alignr }${color2}${time %H:%M:%S - %a %d %B}${voffset -15}
+${font sans:bold:size=12}${if_match "$acpiacadapter"=="on-line"}${color1}${else}${color #B22222}${endif}BAT ${color2}${battery_percent all}% ${color3} | ${color1}UP ${color2}$uptime_short | ${scroll 30 3 ${execi 300 /home/maikel/.bin/weather.sh "EUR|GER|Tubingen"}} 
+${if_match "$acpiacadapter"=="off-line"}${color4}Left ${color2}${battery_time BAT0}${battery_time BAT1}${endif}
 ${color3}${hr}
 ## CPU
-${font sans:bold:size=11}${voffset 5}${color1}CPU 1  ${color2}${cpu cpu1}% ${color3}| ${color2}${freq 1}MHz${color3} | ${color2}${cpubar cpu1}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 2  ${color2}${cpu cpu2}% ${color3}| ${color2}${freq 2}MHz${color3} | ${color2}${cpubar cpu2}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 3  ${color2}${cpu cpu3}% ${color3}| ${color2}${freq 3}MHz${color3} | ${color2}${cpubar cpu3}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 4  ${color2}${cpu cpu4}% ${color3}| ${color2}${freq 4}MHz${color3} | ${color2}${cpubar cpu4}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 5  ${color2}${cpu cpu5}% ${color3}| ${color2}${freq 5}MHz${color3} | ${color2}${cpubar cpu5}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 6  ${color2}${cpu cpu6}% ${color3}| ${color2}${freq 6}MHz${color3} | ${color2}${cpubar cpu6}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 7  ${color2}${cpu cpu7}% ${color3}| ${color2}${freq 7}MHz${color3} | ${color2}${cpubar cpu7}
-${font sans:bold:size=11}${voffset 5}${color1}CPU 8  ${color2}${cpu cpu8}% ${color3}| ${color2}${freq 8}MHz${color3} | ${color2}${cpubar cpu8}
-${voffset 5}${color2}Name${alignr}${offset -10}  PID      CPU%   MEM%
-${font Monospace:size=10}${topcpucolor}${top name 1} ${alignr}${offset -25}${top pid 1}  ${top cpu 1}       ${top mem 1}
-${topcpucolor}${top name 2} ${alignr}${offset -25}${top pid 2}  ${top cpu 2}       ${top mem 2}
-${topcpucolor}${top name 3} ${alignr}${offset -25}${top pid 3}  ${top cpu 3}       ${top mem 3}
-${topcpucolor}${top name 4} ${alignr}${offset -25}${top pid 4}  ${top cpu 4}       ${top mem 4}
-${topcpucolor}${top name 5} ${alignr}${offset -25}${top pid 5}  ${top cpu 5}       ${top mem 5}
-${topcpucolor}${top name 6} ${alignr}${offset -25}${top pid 6}  ${top cpu 6}       ${top mem 6}
-# ${topcpucolor}${top name 7} ${alignr}${offset -25}${top pid 7}  ${top cpu 7}       ${top mem 7}
-# ${topcpucolor}${top name 8} ${alignr}${offset -25}${top pid 8}  ${top cpu 8}       ${top mem 8}
-# ${topcpucolor}${top name 9} ${alignr}${offset -25}${top pid 9}  ${top cpu 9}       ${top mem 9}
+${font sans:bold:size=12}${voffset 5}${color1}CPU 1  ${color2}${cpu cpu1}% ${color3}| ${color2}${freq 1}MHz${color3} | ${color2}${cpubar cpu1}
+${font sans:bold:size=12}${voffset 5}${color1}CPU 2  ${color2}${cpu cpu2}% ${color3}| ${color2}${freq 2}MHz${color3} | ${color2}${cpubar cpu2}
+${font sans:bold:size=12}${voffset 5}${color1}CPU 3  ${color2}${cpu cpu3}% ${color3}| ${color2}${freq 3}MHz${color3} | ${color2}${cpubar cpu3}
+${font sans:bold:size=12}${voffset 5}${color1}CPU 4  ${color2}${cpu cpu4}% ${color3}| ${color2}${freq 4}MHz${color3} | ${color2}${cpubar cpu4}
+${voffset 5}${color2}Name${offset 120}PID      CPU%   MEM%
+${font Monospace:size=11}${color white}${top name 1}  ${top pid 1}  ${top cpu 1}  ${top mem 1}
+${topcpucolor}${top name 2}  ${top pid 2}  ${top cpu 2}  ${top mem 2}
+${topcpucolor}${top name 3}  ${top pid 3}  ${top cpu 3}  ${top mem 3}
+${topcpucolor}${top name 4}  ${top pid 4}  ${top cpu 4}  ${top mem 4}
+${topcpucolor}${top name 5}  ${top pid 5}  ${top cpu 5}  ${top mem 5}
+${topcpucolor}${top name 6}  ${top pid 6}  ${top cpu 6}  ${top mem 6}
+${topcpucolor}${top name 7}  ${top pid 7}  ${top cpu 7}  ${top mem 7}
+${topcpucolor}${top name 8}  ${top pid 8}  ${top cpu 8}  ${top mem 8}
+${topcpucolor}${top name 9}  ${top pid 9}  ${top cpu 9}  ${top mem 9}
 #~ ${topcpucolor}${top name 10}  ${top pid 10}  ${top cpu 10}  ${top mem 10}
 #~ ${topcpucolor}${top name 11}  ${top pid 11}  ${top cpu 11}  ${top mem 11}
 #~ ${topcpucolor}${top name 12}  ${top pid 12}  ${top cpu 12}  ${top mem 12}
-${color2}${cpugraph cpu1 50,85 -t}  ${cpugraph cpu2 50,85 -t}  ${cpugraph cpu3 50,85 -t}  ${cpugraph cpu4 50,85 -t}
-${color2}${cpugraph cpu5 50,85 -t}  ${cpugraph cpu6 50,85 -t}  ${cpugraph cpu9 50,85 -t}  ${cpugraph cpu8 50,85 -t}
+${color2}${cpugraph cpu1 60,218 -t}  ${cpugraph cpu2 60,218 -t}
+${color2}${cpugraph cpu3 60,218 -t}  ${cpugraph cpu4 60,218 -t}
 ${color3}${hr}
 ## RAM
-${font sans:bold:size=11}${voffset 5}${color1}RAM ${offset 22}${color2}$mem ${membar}
+${font sans:bold:size=12}${voffset 5}${color1}RAM ${offset 22}${color2}$mem ${membar}
 ${if_existing $swap}${color1}Swap${color2}${else}${color3}Swap${endif} ${offset 37}$swap $swapbar
-${voffset 5}${color2}Name${alignr}${offset -10}  PID      CPU%   MEM%
-${font Monospace:size=10}${topcpucolor}${top_mem name 1} ${alignr}${offset -25}${top_mem pid 1}  ${top_mem cpu 1}       ${top_mem mem 1}
-${topcpucolor}${top_mem name 2} ${alignr}${offset -25}${top_mem pid 2}  ${top_mem cpu 2}       ${top_mem mem 2}
-${topcpucolor}${top_mem name 3} ${alignr}${offset -25}${top_mem pid 3}  ${top_mem cpu 3}       ${top_mem mem 3}
-${topcpucolor}${top_mem name 4} ${alignr}${offset -25}${top_mem pid 4}  ${top_mem cpu 4}       ${top_mem mem 4}
-${topcpucolor}${top_mem name 5} ${alignr}${offset -25}${top_mem pid 5}  ${top_mem cpu 5}       ${top_mem mem 5}
-${topcpucolor}${top_mem name 6} ${alignr}${offset -25}${top_mem pid 6}  ${top_mem cpu 6}       ${top_mem mem 6}
-# ${topcpucolor}${top_mem name 7} ${alignr}${offset -25}${top_mem pid 7}  ${top_mem cpu 7}       ${top_mem mem 7}
-# ${topcpucolor}${top_mem name 8} ${alignr}${offset -25}${top_mem pid 8}  ${top_mem cpu 8}       ${top_mem mem 8}
-# ${topcpucolor}${top_mem name 9} ${alignr}${offset -25}${top_mem pid 9}  ${top_mem cpu 9}       ${top_mem mem 9}
+${voffset 5}${color2}Name${offset 120}PID      CPU%   MEM%
+${font Monospace:size=11}${color white}${top_mem name 1}  ${top_mem pid 1}  ${top_mem cpu 1}  ${top_mem mem 1}
+${top_mem name 2}  ${top_mem pid 2}  ${top_mem cpu 2}  ${top_mem mem 2}
+${top_mem name 3}  ${top_mem pid 3}  ${top_mem cpu 3}  ${top_mem mem 3}
+${top_mem name 4}  ${top_mem pid 4}  ${top_mem cpu 4}  ${top_mem mem 4}
+${top_mem name 5}  ${top_mem pid 5}  ${top_mem cpu 5}  ${top_mem mem 5}
+${top_mem name 6}  ${top_mem pid 6}  ${top_mem cpu 6}  ${top_mem mem 6}
+${top_mem name 7}  ${top_mem pid 7}  ${top_mem cpu 7}  ${top_mem mem 7}
+${top_mem name 8}  ${top_mem pid 8}  ${top_mem cpu 8}  ${top_mem mem 8}
+${top_mem name 9}  ${top_mem pid 9}  ${top_mem cpu 9}  ${top_mem mem 9}
 #~ ${top_mem name 10}  ${top_mem pid 10}  ${top_mem cpu 10}  ${top_mem mem 10}
 #~ ${top_mem name 11}  ${top_mem pid 11}  ${top_mem cpu 11}  ${top_mem mem 11}
 #~ ${top_mem name 12}  ${top_mem pid 12}  ${top_mem cpu 12}  ${top_mem mem 12}
 ${color3}${hr}
 ## HDD
-${font sans:bold:size=11}${voffset 5}${color1}Linux ${offset 14}${color2}${fs_used /} ${fs_bar /}
+${font sans:bold:size=12}${voffset 5}${color1}Linux ${offset 14}${color2}${fs_used /} ${fs_bar /}
 ${color1}${voffset 5}HD IO: ${color2}${diskio}
 ${color2}${voffset 5}${diskiograph}
 ## Temperatur
@@ -302,7 +299,7 @@ ${color2}${totaldown wlp5s0}${offset 180} ${color2}${totalup wlp5s0}
 ${color3}${hr }
 ## Connections
 ${voffset 5}${color4}Outbound Connection ${alignr} Remote Service/Port ${color white}
-${font Monospace:size=10}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${font Monospace:size=11}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
 ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
 ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
 ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
@@ -310,8 +307,8 @@ ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 
 ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
 #~ ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
 #~ ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
-${font sans:bold:size=11}${voffset 5}${color4}Inbound Connection ${alignr} Local Service/Port${color white}
-${font Monospace:size=10}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${font sans:bold:size=12}${voffset 5}${color4}Inbound Connection ${alignr} Local Service/Port${color white}
+${font Monospace:size=11}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
 ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
 ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
 ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
@@ -319,7 +316,7 @@ ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
 ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
 #~ ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
 #~ ${tcp_portmon 1 32767 rhost 7} ${alignr} ${tcp_portmon 1 32767 lservice 7}
-${color4}${font sans:bold:size=11}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
+${color4}${font sans:bold:size=12}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
 ${color4}${offset 140}Local IP: ${alignr}${color2}${addr wlp5s0}
 ${color4}${offset 140}ESSID: ${alignr}${color2}${wireless_essid wlp5s0}
 ${color4}${offset 140}Quality: ${color2}${wireless_link_bar wlp5s0}
@@ -331,7 +328,7 @@ ${color2}${totaldown wlp4s0}${offset 135} ${color2}${totalup wlp4s0}
 ${color3}${hr }
 ## Connections
 ${voffset 5}${color1}Outbount Connection ${alignr} Remote Service/Port ${color white}
-${font Monospace:size=10}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${font Monospace:size=11}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
 ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
 ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
 ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
@@ -339,8 +336,8 @@ ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 
 ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
 #~ ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
 #~ ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
-${font sans:bold:size=11}${voffset 5}${color1}Inbound Connection ${alignr} Local Service/Port${color white}
-${font Monospace:size=10}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${font sans:bold:size=12}${voffset 5}${color1}Inbound Connection ${alignr} Local Service/Port${color white}
+${font Monospace:size=11}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
 ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
 ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
 ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
@@ -348,7 +345,7 @@ ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
 ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
 #~ ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
 #~ ${tcp_portmon 1 32767 rhost 7} ${alignr} ${tcp_portmon 1 32767 lservice 7}
-${color1}${font sans:bold:size=11}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
+${color1}${font sans:bold:size=12}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
 ${color1}${offset 140}Local IP: ${alignr}${color2}${addr wlp4s0}
 ${color1}${offset 140}ESSID: ${alignr}${color2}${wireless_essid wlp4s0}
 ${color1}${offset 140}Quality: ${color2}${wireless_link_bar wlp4s0}
@@ -356,30 +353,30 @@ ${endif}
 #
 ##LAN
 #
-${voffset -35} ${if_existing /proc/net/route enp0s31f6}${voffset 5}${color1}Down: ${color2}${downspeed enp0s31f6}/s ${alignr} ${color1}Total: ${color2}${totaldown enp0s31f6}
-${color2}${downspeedgraph enp0s31f6 25,300 -t}
-${color1}Up: ${color2}${upspeed enp0s31f6}/s ${alignr} ${color1}Total: ${color2}${totalup enp0s31f6}
-${color2}${upspeedgraph enp0s31f6 25,300 -t}
-${color3}${hr }
+${alignr}${if_existing /proc/net/route enp5s0}${voffset 5}${color1}Down: ${color2}${downspeed enp5s0}/s ${alignr} ${color1}Total: ${color2}${totaldown enp5s0}
+${color2}${downspeedgraph enp5s0 25,300 -t}
+${color1}Up: ${color2}${upspeed enp5s0}/s ${alignr} ${color1}Total: ${color2}${totalup enp5s0}
+${color2}${upspeedgraph enp5s0 25,300 -t}
+${offset 30}${color3}${hr }
 ## Connections
-# ${voffset 5}${color1}Outbound Connection ${alignr} Remote Service/Port ${colorConnection}
-# ${font Monospace:size=10}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
-# ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
-# ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
-# ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
-# ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
-# ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
-# #~ ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
-# #~ ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
-# ${font sans:bold:size=11}${voffset 5}${color1}Inbound Connection ${alignr} Local Service/Port$color
-# ${font Monospace:size=10}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
-# ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
-# ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
-# ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
-# ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
-# ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
-# #~ ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
-# #~ ${tcp_portmon 1 32767 rhost 7} ${alignr} ${tcp_portmon 1 32767 lservice 7}
-${color1}${font sans:bold:size=11}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
-${color1}${offset 140}LAN IP: ${alignr}${color2}${addr enp0s31f6}${endif}
+${voffset 5}${color1}Outbound Connection ${alignr} Remote Service/Port ${colorConnection}
+${font Monospace:size=11}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
+#~ ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
+#~ ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
+${font sans:bold:size=12}${voffset 5}${color1}Inbound Connection ${alignr} Local Service/Port$color
+${font Monospace:size=11}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
+#~ ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
+#~ ${tcp_portmon 1 32767 rhost 7} ${alignr} ${tcp_portmon 1 32767 lservice 7}
+${color1}${font sans:bold:size=12}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
+${color1}${offset 140}LAN IP: ${alignr}${color2}${addr enp5s0}${endif}
 ##SHORTCUTS

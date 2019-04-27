@@ -49,6 +49,7 @@ redshift &
 
 thunderbird &
 conky &
+udiskie &
 exec awesome
 
 #twm &
