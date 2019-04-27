@@ -1,5 +1,4 @@
-# dotfiles
-my own dotfiles
+# Dotfiles
 ## Prerequisits
 ### Awesome
 https://github.com/berlam/awesome-switcher-preview
