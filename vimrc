@@ -66,10 +66,12 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-vinegar'
+Plugin 'justinmk/vim-sneak'
 call vundle#end()
 filetype plugin indent on
 
