@@ -21,7 +21,7 @@ set encoding=utf-8
 
 set relativenumber
 set number
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set autoindent
 set ignorecase smartcase
 set pastetoggle=<F2>
@@ -61,6 +61,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'dense-analysis/ale'
 Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
@@ -114,3 +115,15 @@ nnoremap <leader>m :! make<CR>
 noremap H ^
 noremap L $
 imap jj <ESC>
+
+" ALE
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
