@@ -5,6 +5,10 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -38,7 +42,7 @@ fi
 
 setxkbmap -layout de -option ctrl:nocaps
 
-compton &
+# compton &
 #exec openbox-session
 pnmixer &
 nm-applet &
@@ -46,11 +50,17 @@ clipit &
 cbatticon BAT0 -n &
 cbatticon BAT1 -n &
 redshift &
+blueman-applet &
 
 thunderbird &
+
+# if [[ `xrandr | grep "DP2-1" | grep 1440` ]]; then
+#     /home/maikel/.bin/home.sh
+# fi
 conky &
 udiskie &
 exec awesome
+ibus-daemon --xim --daemonize
 
 #twm &
 #xclock -geometry 50x50-1+1 &

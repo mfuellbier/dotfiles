@@ -1,13 +1,3 @@
-# Manjaro Openbox-Lite Conky Configuration Script
-#
-# Written by Carl Duff of the Manjaro Team
-# Email: carl[at]manjaro[dot]org - Website: www.manjaro.org - Forum: http://forum.manjaro.org/
-#
-# Feel free to alter, distribute, etc., this config file as you wish.
-#
-# Possible variables to be used:
-#
-#   Variable      Arguments         Description       
 
 # 	addr        (interface)   IP address for an interface
 # 	acpiacadapter          ACPI ac adapter state.          
@@ -255,10 +245,10 @@ ${topcpucolor}${top name 2}  ${top pid 2}  ${top cpu 2}  ${top mem 2}
 ${topcpucolor}${top name 3}  ${top pid 3}  ${top cpu 3}  ${top mem 3}
 ${topcpucolor}${top name 4}  ${top pid 4}  ${top cpu 4}  ${top mem 4}
 ${topcpucolor}${top name 5}  ${top pid 5}  ${top cpu 5}  ${top mem 5}
-${topcpucolor}${top name 6}  ${top pid 6}  ${top cpu 6}  ${top mem 6}
-${topcpucolor}${top name 7}  ${top pid 7}  ${top cpu 7}  ${top mem 7}
-${topcpucolor}${top name 8}  ${top pid 8}  ${top cpu 8}  ${top mem 8}
-${topcpucolor}${top name 9}  ${top pid 9}  ${top cpu 9}  ${top mem 9}
+# ${topcpucolor}${top name 6}  ${top pid 6}  ${top cpu 6}  ${top mem 6}
+# ${topcpucolor}${top name 7}  ${top pid 7}  ${top cpu 7}  ${top mem 7}
+# ${topcpucolor}${top name 8}  ${top pid 8}  ${top cpu 8}  ${top mem 8}
+# ${topcpucolor}${top name 9}  ${top pid 9}  ${top cpu 9}  ${top mem 9}
 #~ ${topcpucolor}${top name 10}  ${top pid 10}  ${top cpu 10}  ${top mem 10}
 #~ ${topcpucolor}${top name 11}  ${top pid 11}  ${top cpu 11}  ${top mem 11}
 #~ ${topcpucolor}${top name 12}  ${top pid 12}  ${top cpu 12}  ${top mem 12}
@@ -274,10 +264,10 @@ ${top_mem name 2}  ${top_mem pid 2}  ${top_mem cpu 2}  ${top_mem mem 2}
 ${top_mem name 3}  ${top_mem pid 3}  ${top_mem cpu 3}  ${top_mem mem 3}
 ${top_mem name 4}  ${top_mem pid 4}  ${top_mem cpu 4}  ${top_mem mem 4}
 ${top_mem name 5}  ${top_mem pid 5}  ${top_mem cpu 5}  ${top_mem mem 5}
-${top_mem name 6}  ${top_mem pid 6}  ${top_mem cpu 6}  ${top_mem mem 6}
-${top_mem name 7}  ${top_mem pid 7}  ${top_mem cpu 7}  ${top_mem mem 7}
-${top_mem name 8}  ${top_mem pid 8}  ${top_mem cpu 8}  ${top_mem mem 8}
-${top_mem name 9}  ${top_mem pid 9}  ${top_mem cpu 9}  ${top_mem mem 9}
+# ${top_mem name 6}  ${top_mem pid 6}  ${top_mem cpu 6}  ${top_mem mem 6}
+# ${top_mem name 7}  ${top_mem pid 7}  ${top_mem cpu 7}  ${top_mem mem 7}
+# ${top_mem name 8}  ${top_mem pid 8}  ${top_mem cpu 8}  ${top_mem mem 8}
+# ${top_mem name 9}  ${top_mem pid 9}  ${top_mem cpu 9}  ${top_mem mem 9}
 #~ ${top_mem name 10}  ${top_mem pid 10}  ${top_mem cpu 10}  ${top_mem mem 10}
 #~ ${top_mem name 11}  ${top_mem pid 11}  ${top_mem cpu 11}  ${top_mem mem 11}
 #~ ${top_mem name 12}  ${top_mem pid 12}  ${top_mem cpu 12}  ${top_mem mem 12}
@@ -333,7 +323,7 @@ ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 
 ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
 ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
 ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
-${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
+# ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
 #~ ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
 #~ ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
 ${font sans:bold:size=12}${voffset 5}${color1}Inbound Connection ${alignr} Local Service/Port${color white}
@@ -342,7 +332,7 @@ ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
 ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
 ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
 ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
-${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
+# ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
 #~ ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
 #~ ${tcp_portmon 1 32767 rhost 7} ${alignr} ${tcp_portmon 1 32767 lservice 7}
 ${color1}${font sans:bold:size=12}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
@@ -365,7 +355,7 @@ ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 
 ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
 ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
 ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
-${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
+# ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
 #~ ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
 #~ ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
 ${font sans:bold:size=12}${voffset 5}${color1}Inbound Connection ${alignr} Local Service/Port$color
@@ -374,7 +364,7 @@ ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
 ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
 ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
 ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
-${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
+# ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
 #~ ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
 #~ ${tcp_portmon 1 32767 rhost 7} ${alignr} ${tcp_portmon 1 32767 lservice 7}
 ${color1}${font sans:bold:size=12}${offset 140}Global IP: ${alignr}${color2}${execi 60 wget http://v4.ipv6-test.com/api/myip.php -q -O -}

@@ -71,7 +71,15 @@ Plugin 'tpope/vim-surround'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-vinegar'
-Plugin 'justinmk/vim-sneak'
+" Plugin 'justinmk/vim-sneak'
+Plugin 'elzr/vim-json'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'speshak/vim-cfn'
+Plugin 'tidalcycles/vim-tidal'
+Plugin 'simonhicks/foxdot.vim'
+Plugin 'rust-lang/rust.vim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -109,8 +117,33 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+" Cloudformation
+let g:syntastic_cloudformation_checkers = ['cfn_lint']
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:rustfmt_autosave = 1
+let g:syntastic_rust_checkers = ['cargo']
+
 " keybindings
 nnoremap <leader>m :! make<CR>
 noremap H ^
 noremap L $
 imap jj <ESC>
+
+" FoxDot
+" let g:sclang_executable_path = "/usr/bin/sclang"
+" let g:python_executable_path = "/usr/bin/python"
+vnoremap <silent> <CR> y:call system('nc localhost 7088 -c', @")<CR>
+nnoremap <silent> <CR> :call system('nc localhost 7088 -c', getline('.'))<CR>
+inoremap <silent> <c-enter> :call system('nc localhost 7088 -c', getline('.'))<CR>
+vnoremap <silent> <c-k> :call system('nc localhost 7088 -c <<< "Clock.clear()"')<CR>
+nnoremap <silent> <c-k> :call system('nc localhost 7088 -c <<< "Clock.clear()"')<CR>
