@@ -284,7 +284,7 @@ globalkeys = awful.util.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal.." -e tmux") end,
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal.." -e /home/$USER/.bin/tmux.sh") end,
               {description = "open a terminal with tmux", group = "launcher"}),
     awful.key({ modkey,           }, "d", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
